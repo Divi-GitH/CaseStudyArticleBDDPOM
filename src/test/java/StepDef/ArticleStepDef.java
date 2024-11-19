@@ -3,11 +3,13 @@ package StepDef;
 import java.util.List;
 import java.util.Map;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
@@ -117,6 +119,8 @@ public void article_details_must_be_updated() throws InterruptedException {
 @When("User delete article")
 public void user_delete_article() throws InterruptedException {
 	DeleteArticlepage.DeleteMyArticle();
+	Thread.sleep(1000);
+	driver.switchTo().alert().accept();
 
 }
 

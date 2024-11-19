@@ -14,7 +14,7 @@ public class ViewArticle {
 	static
 	WebElement GlobalFeed;
 	
-	@FindBy(xpath = "//a[@href='#/article/divya-sample26']")
+	@FindBy(xpath = "//a[@href='#/article/divya-sample34']")
 	static
 	WebElement myarticle;
 		
