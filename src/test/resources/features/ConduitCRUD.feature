@@ -11,7 +11,7 @@ Scenario: Login Into App
 		Given User should be on new  Page
     When User enters Article details
     |title| description | body | tags |
-    | Divya sample34 | case Study | Created | Successfully |
+    | Divya lakshmi CaseStudy8 | Selenium Superpowers Why it stands Out | Selenium is like a hero on a quest to save the user experience | Successfully CRUD |
     Then Article must be created
     | Created|
     

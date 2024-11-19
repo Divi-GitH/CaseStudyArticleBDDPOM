@@ -9,12 +9,14 @@ public class ViewArticle {
 	@FindBy(linkText = "Home")
 	static
 	WebElement Home;
+	//xpath (//li[@class='nav-item'])[2] --> home icon
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/main/div/div/div/div/div[1]/ul/li[2]/button")
+	
+	@FindBy(xpath = "(//li[@class='nav-item'])[5]")
 	static
 	WebElement GlobalFeed;
 	
-	@FindBy(xpath = "//a[@href='#/article/divya-sample34']")
+	@FindBy(xpath = "//*[@id=\"root\"]/main/div/div/div/div/div[2]/a/p")
 	static
 	WebElement myarticle;
 		

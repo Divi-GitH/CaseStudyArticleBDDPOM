@@ -11,7 +11,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class DeleteArticle {
 	
-	@FindBy(xpath = "//*[@id=\"root\"]/main/div/div[1]/div/div/button[1]")
+	@FindBy(xpath = "(//button[@class='btn btn-sm'])[1]")
 	static
 	WebElement DeleteBtn;
 	

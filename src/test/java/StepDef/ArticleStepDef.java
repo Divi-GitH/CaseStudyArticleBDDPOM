@@ -126,6 +126,7 @@ public void user_delete_article() throws InterruptedException {
 
 @Then("Article must be deleted")
 public void article_must_be_deleted() {
+	
 
 }
 @After
