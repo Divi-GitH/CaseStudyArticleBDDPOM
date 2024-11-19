@@ -10,8 +10,8 @@ Background: Login Into App
   
 		Given User should be on new  Page
     When User enters Article details
-    |title|description|body|tags|
-    | Divya | case | study | tag |
+    |title| description | body | tags |
+    | DivyaSelenium | caseStudy | Created | Successfully |
     #Then Article must be created
     
  #Scenario: View Article

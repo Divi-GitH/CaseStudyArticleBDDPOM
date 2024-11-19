@@ -27,7 +27,7 @@ public class NewArticle {
 		static
 		WebElement title;
 		
-		@FindBy(name ="description")
+		@FindBy(xpath ="//input[@name='description']")
 		static
 		WebElement description;
 		
@@ -49,14 +49,17 @@ public class NewArticle {
 		description.sendKeys(strsum);
 		body.sendKeys(strbody);
 		tags.sendKeys(strtags);
-		PublishBtn.click();
+//		PublishBtn.click();
 		Thread.sleep(1000);
 		}
 
+		  public static void NewArticlePub() throws InterruptedException {
+			  PublishBtn.click();
+			  Thread.sleep(1000);
+		  }
 
-
-		public void viewArticle() {
-			 NewArticleBtn.isDisplayed();
+		public boolean isArticlecreated() {
+			 return ((NewArticle) NewArticleBtn).isArticlecreated();
 			
 		}
 

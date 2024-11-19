@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.support.FindBy;
+import org.testng.Assert;
 
 import base.TestBase;
 import io.cucumber.datatable.DataTable;
@@ -57,15 +58,11 @@ public void user_enter_article_details(DataTable dataTable) throws InterruptedEx
 	String strsum = data.get(0).get("description");
 	String strbody = data.get(0).get("body");
 	String strtags = data.get(0).get("tags");
-	driver.findElement(By.name("title")).sendKeys(strtit);
-	driver.findElement(By.name("description")).sendKeys(strsum);
-	driver.findElement(By.name("body")).sendKeys(strbody);
-	driver.findElement(By.name("tags")).sendKeys(strtags);
-	NewArticle.testdata(strtit,strsum,strbody,strtags);
+	NewArticle.testdata(strtit, strsum, strbody, strtags);
 }
 
 @Then("Article must be created")
 public void Article_must_be_created() {
-	NewArticlepage.viewArticle();
+	Assert.assertTrue(NewArticlepage.isArticlecreated());
 }
 }
