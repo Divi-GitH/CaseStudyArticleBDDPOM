@@ -5,12 +5,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import base.TestBase;
-import pages.LoginPage;
+import pages.ArticleLoginPage;
 import pages.NewArticle;
 
 public class ArticleCreationCS {
 	  WebDriver driver;
-	  LoginPage LoginPage;
+	  ArticleLoginPage LoginPage;
 	  NewArticle NewArticlepage;
 	
   
@@ -18,20 +18,22 @@ public class ArticleCreationCS {
 	
 		  TestBase.initdriver();
 		  driver = TestBase.getDriver();
-		  LoginPage = new LoginPage(driver);
-//		  NewArticlepage = new NewArticle(driver);
+		  LoginPage = new ArticleLoginPage(driver);
+		  NewArticlepage = new NewArticle(driver);
 		  
 	  }
 @Test
 	  public void setup() throws InterruptedException {
 		  TestBase.openUrl("https://conduit-realworld-example-app.fly.dev/");
 		  LoginPage.validLogin("divi.divyalakshmi3@gmail.com", "Divya@22");
-		  NewArticlepage.NewArticleBtnC();
+		  NewArticle.NewArticleBtnC();
+			Thread.sleep(1000);
 }        
 
-
 }
-	//	  strDes= "Selenium's Syperpowers: Why it Stands out";
+
+
+//"Selenium's Syperpowers: Why it Stands out";
 
 	
 //	ArticleDetailspage.validdata("Divya Lakshmi- Selenium Article");

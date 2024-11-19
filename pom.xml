@@ -69,6 +69,11 @@
  	<artifactId>BDDSample</artifactId>
  	<version>0.0.1-SNAPSHOT</version>
  </dependency>
+ <dependency>
+ 	<groupId>CaseStudy1POM</groupId>
+ 	<artifactId>CaseStudy1POM</artifactId>
+ 	<version>0.0.1-SNAPSHOT</version>
+ </dependency>
 </dependencies>
  <build>
 	    <plugins>

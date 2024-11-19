@@ -5,7 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPage {
+public class ArticleLoginPage {
 	//PageFactory Pattern -
 	//Case Study-1 New Article --> login page	
 	
@@ -22,7 +22,7 @@ public class LoginPage {
 	@FindBy(xpath= "//*[@id=\"root\"]/main/div/div/div/div/form/button")
 	WebElement loginBtn;
 
-	public LoginPage(WebDriver driver) {
+	public ArticleLoginPage(WebDriver driver) {
 		
 		PageFactory.initElements(driver, this);
 	}
