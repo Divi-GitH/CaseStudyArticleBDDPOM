@@ -1,6 +1,6 @@
 Feature: Conduit CRUD Functions
 
-Background: Login Into App
+Scenario: Login Into App
 
     Given User is on Login page
     When User provide "divi.divyalakshmi3@gmail.com" and "Divya@22"
@@ -11,21 +11,22 @@ Background: Login Into App
 		Given User should be on new  Page
     When User enters Article details
     |title| description | body | tags |
-    | DivyaSelenium | caseStudy | Created | Successfully |
+    | Divya sample26 | case Study | Created | Successfully |
     Then Article must be created
+    | Created|
     
- #Scenario: View Article
- #
- #		Given User should be on Global Feed Page
- #		When User select an article "SeleniumCaseStudy"
- #		Then Article detail page must be displayed
- #
- #Scenario: Update an Article
- #
-    #Given Article detail page must be displayed
-    #When  USer update article detail
-    #Then Article details must be updated
- #
+ Scenario: View Article
+ 
+ 		Given User should be on Global Feed Page
+ 		When User select an article "Article Title"
+ 		Then Article detail page must be displayed
+ 
+ Scenario: Update an Article
+ 
+    Given Article detail page must be displayed
+    When  User update article detail
+    Then Article details must be updated
+ 
  #Scenario: Delete an Article
  #
     #Given Article detail page must be displayed

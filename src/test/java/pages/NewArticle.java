@@ -52,17 +52,10 @@ public class NewArticle {
 		PublishBtn.click();
 		Thread.sleep(1000);
 		}
-//
-//		  public static void NewArticlePub() throws InterruptedException {
-//			  PublishBtn.click();
-//			  Thread.sleep(1000);
-//		  }
 
-		public boolean isArticlecreated() {
-			 return ((NewArticle) NewArticleBtn).isArticlecreated();
 			
 		}
 
 
-}
+
 

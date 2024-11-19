@@ -1,17 +1,19 @@
 package testScripts;
 
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 import org.testng.annotations.Test;
-
 import base.TestBase;
 import pages.ArticleLoginPage;
 import pages.NewArticle;
+import pages.ViewArticle;
+import pages.UpdateArticle;
 
 public class ArticleCreationCS {
 	  WebDriver driver;
 	  ArticleLoginPage LoginPage;
-	  NewArticle NewArticlepage;
+	  NewArticle NewArticle;
+	  ViewArticle ViewArticle;
+//	  UpdateArticle UpdateArticle;
 	
   
 	  public ArticleCreationCS() {
@@ -19,14 +21,16 @@ public class ArticleCreationCS {
 		  TestBase.initdriver();
 		  driver = TestBase.getDriver();
 		  LoginPage = new ArticleLoginPage(driver);
-		  NewArticlepage = new NewArticle(driver);
+		  NewArticle = new NewArticle(driver);
+		  ViewArticle = new ViewArticle(driver);
+//		  UpdateArticle = new UpdateArticle(driver);
 		  
 	  }
 @Test
 	  public void setup() throws InterruptedException {
 		  TestBase.openUrl("https://conduit-realworld-example-app.fly.dev/");
 		  LoginPage.validLogin("divi.divyalakshmi3@gmail.com", "Divya@22");
-		  NewArticle.NewArticleBtnC();
+//		  UpdateArticle.UpdateArticleView();
 			Thread.sleep(1000);
 }        
 

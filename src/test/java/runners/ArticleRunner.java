@@ -11,7 +11,7 @@ import io.cucumber.testng.CucumberOptions;
 		dryRun = false,
 		plugin={"pretty",			
 			    "html:target//Reports//HtmlReport.html",
-
+			    "com.aventstack.extentreports.cucumber.adapter.ExtentCucumberAdapter:",
 	}
 		
 )

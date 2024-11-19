@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -12,11 +14,17 @@ import org.testng.Assert;
 
 import base.TestBase;
 import io.cucumber.datatable.DataTable;
+import io.cucumber.java.After;
+import io.cucumber.java.Scenario;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.ArticleLoginPage;
+import pages.DeleteArticle;
 import pages.NewArticle;
+import pages.UpdateArticle;
+import pages.ViewArticle;
+import pages.DeleteArticle;
 
 
 
@@ -25,11 +33,18 @@ public class ArticleStepDef {
 	WebDriver  driver= TestBase.getDriver();
 	  ArticleLoginPage Articleloginpage;
 	  static NewArticle NewArticlepage;
+	  static ViewArticle ViewArticlepage;
+	  static UpdateArticle UpdateArticlepage;
+	  static DeleteArticle DeleteArticlepage;
 
 	  
 	  public ArticleStepDef() {
 		  Articleloginpage = new ArticleLoginPage(driver);
 		  NewArticlepage = new NewArticle(driver);
+		  ViewArticlepage = new ViewArticle(driver);
+		  UpdateArticlepage = new UpdateArticle(driver);
+		  DeleteArticlepage = new DeleteArticle(driver);
+		  
 	  }
 
 	  @Given("User is on Login page")
@@ -49,6 +64,7 @@ public class ArticleStepDef {
 	  @Given("User should be on new  Page")
 	  public void user_should_be_on_new_page() throws InterruptedException {
 		  NewArticlepage.NewArticleBtnC();
+		  Thread.sleep(1000);
 	  }
 	  
 @When("User enters Article details")
@@ -59,10 +75,61 @@ public void user_enter_article_details(DataTable dataTable) throws InterruptedEx
 	String strbody = data.get(0).get("body");
 	String strtags = data.get(0).get("tags");
 	NewArticle.testdata(strtit, strsum, strbody, strtags);
+	Thread.sleep(1000);
+}
+// Article created successfully 
+@Then("Article must be created")
+public void Article_must_be_created(DataTable dataTable) throws InterruptedException {
+	List<List<String>> msg = dataTable.asLists();
+	String expMsg = msg.get(0).get(0);
+	System.out.println("Expected text for success msg ..." + expMsg);
+	Thread.sleep(1000);
+}
+// page navigated to Global feed
+@Given("User should be on Global Feed Page")
+public void user_should_be_on_global_feed_page() throws InterruptedException {
+	 Assert.assertTrue(ViewArticle.ViewArticle());
+	  Thread.sleep(1000);
+}
+// Able to view the My Article
+@When("User select an article {string}")
+public void user_select_an_article(String strtit) throws InterruptedException {
+	ViewArticle.ViewMyArticle();
 }
 
-@Then("Article must be created")
-public void Article_must_be_created() {
-	Assert.assertTrue(NewArticlepage.isArticlecreated());
+@Then("Article detail page must be displayed")
+public void article_detail_page_must_be_displayed() {
+}
+
+// CLick on Edit button
+@When("User update article detail")
+public void user_update_article_detail() throws InterruptedException {
+	UpdateArticle.UpdateArticleView();
+
+}
+
+@Then("Article details must be updated")
+public void article_details_must_be_updated() throws InterruptedException {
+	UpdateArticle.UpdateArticledes();
+
+}
+
+@When("User delete article")
+public void user_delete_article() throws InterruptedException {
+	DeleteArticlepage.DeleteMyArticle();
+
+}
+
+@Then("Article must be deleted")
+public void article_must_be_deleted() {
+
+}
+@After
+public void attachScreenshot(Scenario scenario) {
+	if(scenario.isFailed()) {
+		TakesScreenshot screen = (TakesScreenshot)driver;
+		byte[] imgBytes = screen.getScreenshotAs(OutputType.BYTES);
+				scenario.attach(imgBytes, "image/png", "ScreenImage");
+	}
 }
 }
