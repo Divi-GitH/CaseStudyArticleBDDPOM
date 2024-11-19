@@ -12,7 +12,7 @@ Background: Login Into App
     When User enters Article details
     |title| description | body | tags |
     | DivyaSelenium | caseStudy | Created | Successfully |
-    #Then Article must be created
+    Then Article must be created
     
  #Scenario: View Article
  #

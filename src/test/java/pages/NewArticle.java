@@ -39,7 +39,7 @@ public class NewArticle {
 		static
 		WebElement tags;
 		
-		@FindBy(partialLinkText ="editor")
+		@FindBy(xpath ="//button[contains(text(),'Publish')]")
 		public
 		static
 		WebElement PublishBtn;
@@ -49,14 +49,14 @@ public class NewArticle {
 		description.sendKeys(strsum);
 		body.sendKeys(strbody);
 		tags.sendKeys(strtags);
-//		PublishBtn.click();
+		PublishBtn.click();
 		Thread.sleep(1000);
 		}
-
-		  public static void NewArticlePub() throws InterruptedException {
-			  PublishBtn.click();
-			  Thread.sleep(1000);
-		  }
+//
+//		  public static void NewArticlePub() throws InterruptedException {
+//			  PublishBtn.click();
+//			  Thread.sleep(1000);
+//		  }
 
 		public boolean isArticlecreated() {
 			 return ((NewArticle) NewArticleBtn).isArticlecreated();
